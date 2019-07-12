@@ -174,8 +174,8 @@ func getEngineSpec(attrs map[string]*attribute) engineSpec {
 	psMemory := getInt("ps_memory", 2400)
 	workerMemory := getInt("worker_memory", 1600)
 	workerNum := getInt("worker_num", 2)
-	engineType := getString("type", "local")
-	if (psNum > 0 || workerNum > 0) && engineType == "local" {
+	engineType := getString("type", "")
+	if (psNum > 0 || workerNum > 0) && engineType == "" {
 		engineType = "yarn"
 	}
 	cluster := getString("cluster", "")
